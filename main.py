@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv('./TMDB - movies.csv')
 
@@ -54,5 +55,27 @@ lowest_revenue_movie = df[df["revenue"] == lowest_revenue]
 
 
 # Data analysis
-print(f"Movies which are in profit: \n {df[df['revenue'] - df['budget'] > 0]}")
+# print(f"Movies which are in profit: \n {df[df['revenue'] - df['budget'] > 0]}")
 
+
+# Matplotlib
+# df["profit"] = df["revenue"] - df["budget"]
+# top10 = df.nlargest(10,"profit")
+# plt.figure(figsize=(12,6))
+# plt.bar(top10["movie"],top10["profit"])
+# plt.xticks(rotation=45,ha="right")
+# plt.title("Top 10 Movies by Profit")
+# plt.xlabel("Movies")
+# plt.ylabel("Profit")
+# plt.tight_layout()
+# plt.show()
+
+# --- CHART 3: Histogram - TMDB score distribution ---
+plt.figure(figsize=(8, 5))
+plt.hist(df["tmdb_user_score"], bins=10, color="steelblue", edgecolor="black")
+# bins= how many bars/buckets to split the data into
+plt.title("Distribution of TMDB Scores")
+plt.xlabel("TMDB Score")
+plt.ylabel("Number of Movies")
+plt.tight_layout()
+plt.show()
