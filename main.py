@@ -70,7 +70,6 @@ lowest_revenue_movie = df[df["revenue"] == lowest_revenue]
 # plt.tight_layout()
 # plt.show()
 
-# --- CHART 3: Histogram - TMDB score distribution ---
 plt.figure(figsize=(8, 5))
 plt.hist(df["tmdb_user_score"], bins=10, color="steelblue", edgecolor="black")
 # bins= how many bars/buckets to split the data into
